@@ -6,10 +6,7 @@ export default function CoursesPage() {
       <div className="max-w-[1200px] mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-16">
-          <div className="text-white text-2xl font-semibold">
-Pawan
-
-          </div>
+          <div className="text-white text-2xl font-semibold"></div>
           <div className="flex items-center gap-2">
             <span className="text-white">Courses</span>
             <Image

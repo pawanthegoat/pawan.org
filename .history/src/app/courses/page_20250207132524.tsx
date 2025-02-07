@@ -7,8 +7,8 @@ export default function CoursesPage() {
         {/* Header */}
         <div className="flex justify-between items-center mb-16">
           <div className="text-white text-2xl font-semibold">
-Pawan
 
+            
           </div>
           <div className="flex items-center gap-2">
             <span className="text-white">Courses</span>
