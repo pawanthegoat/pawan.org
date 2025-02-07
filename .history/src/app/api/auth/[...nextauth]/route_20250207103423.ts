@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
-
-
-
+import GoogleProvider from "next-auth/providers/google";
+import TwitterProvider from "next-auth/providers/twitter";
+import { SupabaseAdapter } from "@next-auth/supabase-adapter";
 
 const handler = NextAuth({
   providers: [
