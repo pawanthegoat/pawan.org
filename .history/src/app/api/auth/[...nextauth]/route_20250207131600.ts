@@ -31,10 +31,3 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
-// 
-// const handler  =NextAuth({
-    // providers:[
-// 
-    // ]
-// })
-// export {handler as GET  , handler as Post}
