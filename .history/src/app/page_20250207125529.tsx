@@ -1,18 +1,20 @@
-"use client";
-
-import { useRouter } from "next/navigation"; // ✅ Correct import
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Link from "next/link";
-import LoginModal from "./Components/LoginModal";
-import { useSession, signOut } from "next-auth/react";
-
+"use client"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Link from "next/link"
+import LoginModal from "./Components/LoginModal"
+import { useSession, signOut } from "next-auth/react"
 export default function Page() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const { data: session } = useSession();
-  const router = useRouter(); // ✅ Now it will work correctly
-
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [mounted, setMounted] = useState(false);
+useEffect(()=>{
+setMounted(true)
+})
+if(mounted)  return  null;
+  const { data: session } = useSession()
+  const router  =useRouter();
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-white flex flex-col">
       {/* Navigation Bar */}
@@ -68,11 +70,12 @@ export default function Page() {
           </h1>
           <p className="text-xl text-gray-400">Build beautiful apps & websites with easy-to-follow tutorials</p>
           <Button
-            onClick={() => router.push("/courses")}
-            className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-lg px-8 py-4 rounded-md"
-          >
+          onClick={()=> router.push("/courses")}
+          className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-lg px-8 py-4 rounded-md">
             Get Started
           </Button>
+          <div className="flex items-center gap-6">
+          </div>
         </div>
         <div className="relative aspect-video rounded-lg overflow-hidden bg-black/20 border border-gray-800 shadow-lg">
           <div className="absolute top-0 left-0 right-0 h-10 bg-[#2a2a2a] flex items-center gap-2 px-4">
@@ -91,5 +94,5 @@ export default function Page() {
       </main>
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </div>
-  );
+  )
 }
